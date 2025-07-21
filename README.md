@@ -1,11 +1,20 @@
-# Nuclei Template – Multilingual User Registration Page (Headless Required)
+# Magic Nuclei Templates
 
-This is a custom Nuclei template created to detect multilingual user registration pages in web applications.  
-It identifies common registration fields such as `full_name`, `email`, `password`, `gender`, and others, across different languages (e.g., English and Spanish).
+This repository contains a collection of custom [Nuclei](https://github.com/projectdiscovery/nuclei) templates created to assist in reconnaissance, vulnerability detection, and web application analysis.
 
-> ⚠️ **Important:** This template requires the `-headless` flag when running Nuclei, as it relies on DOM-based detection. Without `-headless`, it won't work properly.
+Each template is handcrafted to target specific patterns, misconfigurations, or endpoints that may be useful for bug bounty hunting or pentesting.
 
-## Usage
+---
+
+## Available Templates
+
+### 📝 `user-registration-multilang.yaml`
+
+Detects multilingual user registration pages in web applications by identifying fields such as `full_name`, `email`, `password`, `gender`, etc., in multiple languages (e.g., English and Spanish).
+
+> ⚠️ **Requires the `-headless` flag**, as it uses DOM-based matchers. Without `-headless`, the template will not function correctly.
+
+**Usage:**
 
 ```bash
 nuclei -t user-registration-multilang.yaml -u https://target.com -headless
