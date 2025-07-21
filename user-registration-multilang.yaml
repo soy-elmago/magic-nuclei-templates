@@ -1,0 +1,163 @@
+id: user-registration-multilang
+
+info:
+  name: User Registration Page Detector (Multi-language)
+  author: elmago
+  severity: info
+  description: Detecta indicios de formularios de registro de usuarios en múltiples idiomas mediante extracción de texto con JavaScript.
+  tags: registration,signup,headless,multilingual
+
+headless:
+  - steps:
+      - action: navigate
+        args:
+          url: "{{BaseURL}}"
+      - action: waitload
+      - action: script
+        name: full_page_text
+        args:
+          code: |
+            () => {
+              return document.body ? document.body.innerText : '';
+            }
+    matchers:
+      - type: regex
+        name: english
+        regex:
+          - "(?i)register"
+          - "(?i)sign\\s?up"
+          - "(?i)signup"
+          - "(?i)create account"
+          - "(?i)join now"
+          - "(?i)get started"
+          - "(?i)open account"
+          - "(?i)new user"
+          - "(?i)register now"
+          - "(?i)become a member"
+
+      - type: regex
+        name: spanish
+        regex:
+          - "(?i)registro"
+          - "(?i)registrarse"
+          - "(?i)crear cuenta"
+          - "(?i)inscribirse"
+          - "(?i)alta de usuario"
+          - "(?i)nuevo usuario"
+          - "(?i)abrir cuenta"
+          - "(?i)darse de alta"
+          - "(?i)registrarme"
+          - "(?i)registrate"
+
+      - type: regex
+        name: french
+        regex:
+          - "(?i)inscription"
+          - "(?i)s'inscrire"
+          - "(?i)créer un compte"
+          - "(?i)ouvrir un compte"
+          - "(?i)nouveau compte"
+          - "(?i)rejoindre"
+          - "(?i)devenir membre"
+          - "(?i)s'enregistrer"
+          - "(?i)compte utilisateur"
+          - "(?i)créer profil"
+
+      - type: regex
+        name: german
+        regex:
+          - "(?i)registrieren"
+          - "(?i)anmelden"
+          - "(?i)konto erstellen"
+          - "(?i)neues konto"
+          - "(?i)benutzerkonto"
+          - "(?i)mitglied werden"
+          - "(?i)konto eröffnen"
+          - "(?i)registrierung"
+          - "(?i)konto anlegen"
+          - "(?i)registriere dich"
+
+      - type: regex
+        name: italian
+        regex:
+          - "(?i)registrati"
+          - "(?i)iscriversi"
+          - "(?i)crea un account"
+          - "(?i)nuovo utente"
+          - "(?i)apri un account"
+          - "(?i)registrazione"
+          - "(?i)diventa membro"
+          - "(?i)crea profilo"
+          - "(?i)registrazione account"
+          - "(?i)registrazione utente"
+
+      - type: regex
+        name: portuguese
+        regex:
+          - "(?i)registrar"
+          - "(?i)inscrever-se"
+          - "(?i)criar conta"
+          - "(?i)novo usuário"
+          - "(?i)abrir conta"
+          - "(?i)cadastro"
+          - "(?i)tornar-se membro"
+          - "(?i)criar perfil"
+          - "(?i)registro de usuário"
+          - "(?i)inscreva-se"
+
+      - type: regex
+        name: russian
+        regex:
+          - "(?i)регистрация"
+          - "(?i)создать аккаунт"
+          - "(?i)зарегистрироваться"
+          - "(?i)новый пользователь"
+          - "(?i)открыть счет"
+          - "(?i)стать участником"
+          - "(?i)регистрация пользователя"
+          - "(?i)создать профиль"
+          - "(?i)зарегистрируйтесь"
+          - "(?i)регистрация аккаунта"
+
+      - type: regex
+        name: chinese
+        regex:
+          - "(?i)注册"
+          - "(?i)创建账户"
+          - "(?i)新用户"
+          - "(?i)开设账户"
+          - "(?i)加入我们"
+          - "(?i)成为会员"
+          - "(?i)用户注册"
+          - "(?i)创建账号"
+          - "(?i)注册账户"
+          - "(?i)开始注册"
+
+      - type: regex
+        name: japanese
+        regex:
+          - "(?i)登録"
+          - "(?i)アカウント作成"
+          - "(?i)新規登録"
+          - "(?i)ユーザー登録"
+          - "(?i)メンバーになる"
+          - "(?i)アカウント登録"
+          - "(?i)サインアップ"
+          - "(?i)登録する"
+          - "(?i)アカウントを作成"
+          - "(?i)登録ページ"
+
+      - type: regex
+        name: arabic
+        regex:
+          - "(?i)تسجيل"
+          - "(?i)إنشاء حساب"
+          - "(?i)مستخدم جديد"
+          - "(?i)فتح حساب"
+          - "(?i)انضم الآن"
+          - "(?i)تسجيل الدخول"
+          - "(?i)تسجيل حساب"
+          - "(?i)إنشاء ملف"
+          - "(?i)تسجيل مستخدم"
+          - "(?i)انضم إلينا"
+
